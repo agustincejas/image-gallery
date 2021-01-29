@@ -1,0 +1,6 @@
+<mat-card *ngIf="image" class="card--pointer" (click)="goToDetailView(image.id)">
+    <mat-card-content>
+      <img mat-card-image [src]="image.cropped_picture" alt="Image preview">
+    </mat-card-content>
+  </mat-card>
+  

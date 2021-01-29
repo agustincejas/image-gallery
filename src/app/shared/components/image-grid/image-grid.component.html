@@ -1,0 +1,18 @@
+<div  *ngIf="!isDetailView">
+  <div class="images__grid-container">
+    <div class="images__grid">
+      <div *ngFor="let image of images; let i = index"> 
+        <app-image-preview [image]="image" (inDetailView)="showCarousel($event)"></app-image-preview>
+      </div>
+    </div>
+  </div>
+  <mat-paginator (page)="onPageChanged($event)" [length]="paginator.length" [pageSize]="paginator.pageSize">
+  </mat-paginator>
+</div>
+<carousel *ngIf="isDetailView" [isAnimated]="true">
+  <slide *ngFor="let item of slides; let i = index">
+    <img [src]="item.full_picture" [alt]="'slide n:'+ i" style="display: block; width: 100%;">
+  </slide>
+</carousel>
+
+
